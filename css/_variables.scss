@@ -1,0 +1,23 @@
+// Base colors
+$brandColor:      #f77823;
+
+// Generic colors
+$textColor:       #222;
+$linkColor:       #fe572d;
+$hoverColor:      $brandColor;
+$focusColor:      $brandColor;
+$borderColor:     #ddd;
+
+// Font families
+$mainFont:        'Raleway', sans-serif;
+
+// Breakpoints
+$xl:              1200px;
+$lg:              992px;
+$md:              768px;
+$sm:              576px;
+$xs:              384px;
+
+// Animation properties
+$duration:        0.2s;
+$delay:           0.2s;

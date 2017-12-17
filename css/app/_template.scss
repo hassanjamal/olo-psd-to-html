@@ -1,0 +1,573 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-family: $mainFont;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.618;
+  color: $textColor;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  &.home {
+    height: 500vh;
+    background: url('/helpers/home.jpg') no-repeat center top;
+    -webkit-background-size: cover;
+    background-size: 1440px;
+  }
+}
+
+::-moz-selection {
+  color: #fff;
+  background: $brandColor;
+  text-shadow: none;
+}
+
+::selection {
+  color: #fff;
+  background: $brandColor;
+  text-shadow: none;
+}
+
+.sidemenu {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: $lg) {
+    display: none;
+  }
+
+  &:before {
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 3px;
+    width: 1px;
+    background: rgba($brandColor, 0.5);
+    content: '';
+  }
+
+  li {
+    font-size: 12px;
+    line-height: 20px;
+    position: relative;
+    padding: 6px 0 6px 15px;
+
+    &:before {
+      position: absolute;
+      top: 13px;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba($brandColor, 0.5);
+      display: block;
+      content: '';
+    }
+
+    a {
+      color: rgba($brandColor, 0.5);
+
+      &.active,
+      &:hover {
+        color: #f00;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+  @include fluid-type(padding-top, $md, $xl, 20px, 40px);
+  transition: padding-top $duration;
+  z-index: 10;
+
+  &-scrolled {
+    padding-top: 20px;
+  }
+
+  &-logo {
+    float: left;
+    display: inline-block;
+  }
+
+  &-menu {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: $md) {
+      display: none;
+    }
+
+    &_item {
+      font-size: 16px;
+      line-height: 24px;
+      display: inline-block;
+      float: left;
+    }
+
+    &_link {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      @include fluid-type(padding-right padding-left, $md, $xl, 10px, 20px);
+      color: $textColor;
+      display: block;
+
+      &:hover {
+        color: $linkColor;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.main {
+}
+
+.section {
+  position: relative;
+  @include fluid-type(padding-top, $md, $xl, 85px, 125px);
+  @include fluid-type(padding-bottom, $md, $xl, 20px, 40px);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @media (max-width: $sm) {
+    background-attachment: scroll;
+  }
+
+  &-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    display: block;
+    background: url('../img/chevron-bottom_orange.svg') no-repeat;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @media (max-width: $sm) {
+      display: none;
+    }
+  }
+
+  &-img {
+    display: none;
+
+    @media (max-width: $sm) {
+      width: 300px;
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+    }
+  }
+
+  &-1 {
+    min-height: 100vh;
+    background-image: url('../img/section-1_bg.png');
+
+    @media (max-width: $sm) {
+      background-image: url('../img/section-1_mbg.png');
+    }
+
+    &_arrow {
+      font-size: 14px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 150px;
+      height: 50px;
+      margin-left: -75px;
+      text-align: center;
+      display: block;
+      color: #000;
+
+      @media (max-width: $sm) {
+        display: none;
+      }
+
+      &:after {
+        position: absolute;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        margin-left: -8px;
+        display: block;
+        background: url('../img/chevron-bottom.svg') no-repeat;
+        content: '';
+      }
+
+      &:hover {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-2 {
+    min-height: 100vh;
+    background-image: url('../img/section-2_bg.png');
+
+    @media (max-width: $sm) {
+      background-image: none;
+    }
+
+    &_challenge {
+      position: relative;
+      padding-left: 120px;
+
+      &:before {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 92px;
+        height: 18px;
+        background: url('../img/this-month.png') no-repeat;
+        content: '';
+      }
+    }
+
+    em {
+      font-weight: 400;
+    }
+
+    &_graphic {
+      position: relative;
+      @include fluid-type(margin-bottom, $md, $xl, 20px, 60px);
+      @include fluid-type(margin-left, $md, $xl, 0px, -60px);
+
+      &-numbers1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: $brandColor;
+
+        &:before {
+          font-size: 12px;
+          content: 'on';
+        }
+
+        span {
+          font-size: 14px;
+          line-height: 20px;
+          padding: 0 3px;
+          background: #fff;
+          box-shadow: 0 1px 3px rgba(#666, 0.3);
+
+        }
+      }
+
+      &-numbers2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: $brandColor;
+
+        &:before {
+          font-size: 12px;
+          content: 'on';
+        }
+
+        span {
+          font-size: 14px;
+          line-height: 20px;
+          padding: 0 3px;
+          background: #fff;
+          box-shadow: 0 1px 3px rgba(#666, 0.3);
+
+        }
+      }
+    }
+
+    &_img {
+
+    }
+  }
+
+  &-3 {
+    min-height: 100vh;
+    background-image: url('../img/section-3_bg.png');
+
+    @media (max-width: $sm) {
+      background-image: none;
+    }
+  }
+
+  &-4 {
+    min-height: 100vh;
+    background-image: url('../img/section-4_bg.png');
+
+    @media (max-width: $sm) {
+      background-image: none;
+    }
+  }
+
+  &-5 {
+    min-height: 100vh;
+    background-image: url('../img/section-5_bg.png');
+
+    @media (max-width: $sm) {
+      background-image: url('../img/section-5_mbg.png');
+    }
+
+    &_img1 {
+      width: 200px;
+      float: right;
+      @include fluid-type(margin-right, $md, $xl, 0px, -60px);
+      @include fluid-type(margin-bottom, $md, $xl, 10px, 30px);
+    }
+
+    &_img2 {
+      width: 300px;
+      float: left;
+      @include fluid-type(margin-top, $md, $xl, 10px, 30px);
+      @include fluid-type(margin-left, $md, $xl, 0px, -60px);
+    }
+  }
+
+  &-6 {
+    min-height: 100vh;
+    background-image: url('../img/section-6_bg.png');
+
+    @media (max-width: $sm) {
+      background-image: none;
+    }
+
+    &_img {
+      float: left;
+      width: 140px;
+      @include fluid-type(margin-top, $md, $xl, 10px, 30px);
+      margin-right: 20px;
+      margin-bottom: 15px;
+    }
+
+    &_text {
+      font-weight: 600;
+      @include fluid-type(padding-top, $md, $xl, 50px, 100px);
+    }
+  }
+
+  &-7 {
+    min-height: 100vh;
+
+    &_chat {
+      position: relative;
+      text-align: center;
+      padding-bottom: 50px;
+
+      span {
+        color: red;
+      }
+
+      &:after {
+        position: absolute;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        margin-left: -8px;
+        display: block;
+        background: url('../img/chevron-bottom_orange.svg') no-repeat;
+        content: '';
+      }
+    }
+
+    &_box {
+      position: relative;
+    }
+
+    &_content {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 30% 50px 0;
+      text-align: center;
+      color: #fff;
+
+      @media (max-width: $lg) {
+        padding-top: 28%;
+      }
+
+      @media (max-width: $md) {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        padding-top: 20px;
+        color: $textColor;
+      }
+
+      h2 {
+        @media (max-width: $lg) {
+          font-size: 22px;
+        }
+      }
+
+      p {
+        font-size: 20px;
+        @media (max-width: $lg) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &_fb {
+      font-weight: 600;
+    }
+  }
+}
+
+.footer {
+  padding-top: 30px;
+  box-shadow: 0 0 5px rgba($borderColor, 1);
+
+  &-logo {
+    float: left;
+    display: inline-block;
+    color: $textColor;
+
+    @media (max-width: $md) {
+      float: none;
+      display: block;
+      text-align: center;
+    }
+
+    span {
+      font-size: 13px;
+      line-height: 18px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    &:hover {
+      color: $linkColor;
+      text-decoration: none;
+    }
+  }
+
+  &-menu {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: $lg) {
+      display: none;
+    }
+
+    &_item {
+      font-size: 16px;
+      line-height: 24px;
+      display: inline-block;
+      float: left;
+    }
+
+    &_link {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      @include fluid-type(padding-right padding-left, $md, $xl, 10px, 20px);
+      color: $textColor;
+      display: block;
+
+      &:hover {
+        color: $linkColor;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-socials {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: $md) {
+      float: none;
+      text-align: center;
+    }
+
+    &_item {
+      display: inline-block;
+      float: left;
+
+      @media (max-width: $md) {
+        float: none;
+        display: inline;
+      }
+    }
+
+    &_link {
+      width: 28px;
+      height: 46px;
+      display: block;
+      text-indent: -999rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 22px 22px;
+
+      @media (max-width: $md) {
+        display: inline-block;
+      }
+
+      &--messenger {
+        background-image: url('../img/footer-messenger.png');
+      }
+
+      &--facebook {
+        background-image: url('../img/footer-facebook.png');
+      }
+
+      &--instagram {
+        background-image: url('../img/footer-instagram.png');
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-copyright {
+    font-size: 12px;
+    text-align: center;
+    @include fluid-type(margin-top, $md, $xl, 20px, 60px);
+    margin-bottom: 20px;
+  }
+}
+
+
+h2 {
+  font-weight: 600;
+}
+
+h4 {
+  color: $brandColor;
+}
+
+.brandcolor {
+  color: $brandColor;
+}
